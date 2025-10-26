@@ -29,11 +29,11 @@ jobs:
         run: |
           pip install curl_cffi requests
 
-     # - name: 随机等待 0-7200 秒（0~2小时）
-      #  run: |
-       #   DELAY=$((RANDOM % 7200))
-       #   echo "⏳ 随机等待 $DELAY 秒..."
-       #   sleep $DELAY
+      - name: 随机等待 0-7200 秒（0~2小时）
+        run: |
+          DELAY=$((RANDOM % 7200))
+          echo "⏳ 随机等待 $DELAY 秒..."
+          sleep $DELAY
 
       - name: 运行签到脚本
         env:
