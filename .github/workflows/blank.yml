@@ -5,12 +5,22 @@ on:
     branches:
       - main
   schedule:
-    - cron: '00 16 * * *'  # 北京时间 00:00 (UTC+8)，对应UTC时间 16:00
+    - cron: '00 00 * * *'  # 北京时间 00:00 (UTC+8)，对应UTC时间 16:00
   workflow_dispatch:
 
 permissions:
   contents: read
   actions: write  # 添加写入Actions变量的权限
+
+jobs:
+  random_run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 随机等待 0-7200 秒（0~2小时）
+        run: |
+          DELAY=$((RANDOM % 7200))
+          echo "⏳ 随机等待 $DELAY 秒..."
+          sleep $DELAY
 
 jobs:
   run-nodeseek-sign:
