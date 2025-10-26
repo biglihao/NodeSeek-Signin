@@ -22,10 +22,6 @@ jobs:
           echo "⏳ 随机等待 $DELAY 秒..."
           sleep $DELAY
 
-jobs:
-  run-nodeseek-sign:
-    runs-on: ubuntu-latest
-
     steps:
       - name: 检出代码仓库
         uses: actions/checkout@v3
